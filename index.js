@@ -17,13 +17,13 @@ class Product {
     console.log(`${this.name} has ${discount} discount`);
     return discount;
   }
-}
 
-function removeProduct(product) {
-  ProductsDiscount.delete(product);
-  console.log(`Discount for ${product.name} removed`);
-  console.log(`The ${product.name} has been removed`);
-  product = null;
+  static remove(product) {
+    ProductsDiscount.delete(product);
+    console.log(`Discount for ${product.name} removed`);
+    console.log(`The ${product.name} has been removed`);
+    return null;
+  }
 }
 
 // Create products
@@ -37,7 +37,7 @@ banana.setDiscount("20%");
 lemon.setDiscount("40%");
 
 // Remove one product
-removeProduct(apple);
+apple = Product.remove(apple);
 
 // Check discounts
 console.log(
